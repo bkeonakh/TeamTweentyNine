@@ -11,8 +11,8 @@
     <body>
         <nav>
         <a href="{{ url_for('index') }}"> Home </a> ||
-        <a href="{{ url_for('get_notes') }}"> My posts</a> ||
-        <a href="{{url_for('new_note')}}"> Make posts</a>
+        <a href="{{ url_for('get_post') }}"> My posts</a> ||
+        <a href="{{url_for('new_post')}}"> Make posts</a>
         </nav>
 
         <h1>Welcome {{user.name}} to the Question and Answer App!</h1>
