@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="UNCC Notes App">
+        <title>UNCC Notes App - New Note</title>
+        <!-- styles -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+   <body>
+       <nav>
+        <a href="{{ url_for('index') }}"> Home </a> ||
+        <a href="{{ url_for('get_questions') }}"> My notes </a> ||
+        <a href="{{url_for('new_question')}}"> Add note</a>
+        </nav>
+
+        <h1>Welcome {{user.name}} to the Question and Answer App!</h1>
+       {% if Question %}
+            <form action = "{{url_for('update_note', note_id=note.id)}}" method="post">
+       {% else %}
+            <form action="new" method="post">
+       {% endif %}
+           <p><label>Title </label></p><p>  <input type="text" name="title" value="{% if note %}{{note.title}}{% endif %}"/></p>
+            <p><label>Question</label></p>
+            <p>
+                <textarea name="noteText"  rows="6" cols="0" >
+                    {% if Question %}
+                        {{note.text}}
+                    {% else %}
+                        Enter new text...
+                    {% endif %}
+                </textarea>
+            </p>
+            <p>
+                {% if note %}
+                    <input type="submit" value="Update Note"/>
+                {% else %}
+                    <input type="submit" value="Add Note"/>
+                {% endif %}
+            </p>
+       </form>
+   </body>
+</html>
