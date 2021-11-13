@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="UNCC Notes App">
-        <title>Question and Answer App</title>
+        <meta name="description" content="Question and Answer App">
+        <title>Question and Answer App - Posts</title>
 
         <!-- styles -->
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
@@ -15,7 +15,7 @@
             <a href="{{ url_for('viewQuestions') }}"> My Questions</a> ||
 
         </nav>
-        <h1>Welcome {{user.name}} to Question and Answer App</h1>
+
         <h1>Questions</h1>
 
         <table>
@@ -23,10 +23,10 @@
                 <th>Title</th>
                 <th>Date</th>
             </tr>
-            {% for note in notes %}
+            {% for Question in Questions %}
             <tr>
-                <td><a href="{{ url_for('get_note', note_id=note.id) }}"> {{ note.title }}</a></td>
-                <td>{{ note.date }}</td>
+                <td><a href="{{ url_for('get_note', note_id=note.id) }}"> {{ Question.title }}</a></td>
+                <td>{{ Question.date }}</td>
                 <td><a href="{{ url_for('update_note', note_id=note.id) }}">Edit</a></td>
                 <td>
                     <form action="{{ url_for('delete_note', note_id=note.id) }}" method="post">
