@@ -31,14 +31,14 @@ def index():
 def get_questions():
     a_user = db.session.query(User).filter_by(email='mogli@uncc.edu').one()
     my_posts = db.session.query(Question).all()
-    return render_template('viewQuestions.html',notes=my_posts,user=a_user)
+    return render_template('viewQuestions.html',posts=my_posts,user=a_user)
 
 @app.route('/posts/<question_id>')
 def get_question(note_id):
     a_user = db.session.query(User).filter_by(email='mogli@uncc.edu').one()
     my_question = db.session.query(Question).filter_by(id=note_id).one()
 
-    return render_template('question.html',note=my_question,user=a_user)
+    return render_template('question.html',post=my_question,user=a_user)
 
 @app.route('/posts/new', methods=['GET','POST'])
 def new_question():
@@ -53,7 +53,7 @@ def new_question():
         new_record = Question(title,text,today)
         db.session.add(new_record)
         db.session.commit()
-        return redirect(url_for('get_notes'))
+        return redirect(url_for('get_questions'))
     else:
         a_user = db.session.query(User).filter_by(email='mogli@uncc.edu').one()
         return render_template('createQuestion.html',user=a_user)
@@ -69,11 +69,11 @@ def update_question(question_id):
         note.text = text
         db.session.add(note)
         db.session.commit()
-        return redirect(url_for('get_notes'))
+        return redirect(url_for('get_questions'))
     else:
         a_user = db.session.query(User).filter_by(email='mogli@uncc.edu').one()
         my_question = db.session.query(Question).filter_by(id=question_id).one()
-        return render_template('new.html',question=my_question,user=a_user)
+        return render_template('question.html',question=my_question,user=a_user)
 
 @app.route('/posts/delete/<question_id>', methods=['POST'])
 def delete_note(question_id):
