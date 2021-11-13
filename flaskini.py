@@ -46,7 +46,7 @@ def new_question():
 
     if request.method == 'POST':
         title = request.form['title']
-        text = request.form['noteText']
+        text = request.form['Text']
         from datetime import date
         today = date.today()
         today = today.strftime("%m-%d-%y")
@@ -63,11 +63,11 @@ def new_question():
 def update_question(question_id):
     if request.method == 'POST':
         title = request.form['title']
-        text = request.form['noteText']
-        note = db.session.query(Question).filter_by(id=question_id).one()
-        note.title = title
-        note.text = text
-        db.session.add(note)
+        text = request.form['Text']
+        question = db.session.query(Question).filter_by(id=question_id).one()
+        question.title = title
+        question.text = text
+        db.session.add(question)
         db.session.commit()
         return redirect(url_for('get_questions'))
     else:
@@ -76,7 +76,7 @@ def update_question(question_id):
         return render_template('question.html',question=my_question,user=a_user)
 
 @app.route('/posts/delete/<question_id>', methods=['POST'])
-def delete_note(question_id):
+def delete_question(question_id):
     my_question = db.session.query(Question).filter_by(id=question_id).one()
     db.session.delete(my_question)
     db.session.commit()
