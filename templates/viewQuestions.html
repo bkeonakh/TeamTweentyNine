@@ -24,13 +24,13 @@
                 <th>Title</th>
                 <th>Date</th>
             </tr>
-            {% for Question in Questions %}
+            {% for question in ViewQuestions %}
             <tr>
-                <td><a href="{{ url_for('get_question', question_id=Question.id) }}"> {{ Question.title }}</a></td>
-                <td>{{ Question.date }}</td>
-                <td><a href="{{ url_for('update_question', question_id=Question.id) }}">Edit</a></td>
+                <td><a href="{{ url_for('get_question', question_id=question.id) }}"> {{ question.title }}</a></td>
+                <td>{{ question.date }}</td>
+                <td><a href="{{ url_for('update_question', question_id=question.id) }}">Edit</a></td>
                 <td>
-                    <form action="{{ url_for('delete_note', note_id=note.id) }}" method="post">
+                    <form action="{{ url_for('delete_question', question_id=question.id) }}" method="post">
                           <input type="submit" value="Delete">
                     </form>
                 </td>
