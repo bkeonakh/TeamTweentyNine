@@ -3,16 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="UNCC Notes App">
-        <title>UNCC Notes App - New Note</title>
+        <meta name="description" content="Question and Answer App">
+        <title>Question and Answer App - New Note</title>
         <!-- styles -->
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     </head>
    <body>
        <nav>
         <a href="{{ url_for('index') }}"> Home </a> ||
-        <a href="{{ url_for('get_questions') }}"> My notes </a> ||
-        <a href="{{url_for('new_question')}}"> Add note</a>
+        <a href="{{ url_for('get_questions') }}"> My Posts </a> ||
+        <a href="{{url_for('new_question')}}"> New Post </a>
         </nav>
 
 
