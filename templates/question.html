@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Question and Answer App">
+        <title>Question and Answer App - New Note</title>
+        <!-- styles -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+    <body>
+        <nav>
+        <a href="{{ url_for('index') }}"> Home </a> ||
+        <a href="{{ url_for('get_questions') }}"> My Posts </a> ||
+        <a href="{{url_for('new_question')}}"> New Post </a>
+        </nav>
+
+        <h1>Post details</h1>
+
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Text</th>
+                <th>Date</th>
+            </tr>
+            <tr>
+                <td>{{ Question.title }}</td>
+                <td>{{ Question.text }}</td>
+                <td>{{ Question.date }}</td>
+            </tr>
+        </table>
+    </body>
+</html>
