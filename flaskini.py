@@ -34,9 +34,9 @@ def get_questions():
     return render_template('viewQuestions.html',posts=my_posts,user=a_user)
 
 @app.route('/posts/<question_id>')
-def get_question(note_id):
+def get_question(question_id):
     a_user = db.session.query(User).filter_by(email='mogli@uncc.edu').one()
-    my_question = db.session.query(Question).filter_by(id=note_id).one()
+    my_question = db.session.query(Question).filter_by(id=question_id).one()
 
     return render_template('question.html',post=my_question,user=a_user)
 
