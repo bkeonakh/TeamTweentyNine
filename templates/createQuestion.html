@@ -15,18 +15,18 @@
         <a href="{{url_for('new_question')}}"> Add note</a>
         </nav>
 
-        <h1>Welcome {{user.name}} to the Question and Answer App!</h1>
+
        {% if Question %}
-            <form action = "{{url_for('update_note', note_id=note.id)}}" method="post">
+            <form action = "{{url_for('update_question', question_id=question.id)}}" method="post">
        {% else %}
             <form action="new" method="post">
        {% endif %}
-           <p><label>Title </label></p><p>  <input type="text" name="title" value="{% if note %}{{note.title}}{% endif %}"/></p>
+           <p><label>Title </label></p><p>  <input type="text" name="title" value="{% if question %}{{question.title}}{% endif %}"/></p>
             <p><label>Question</label></p>
             <p>
-                <textarea name="noteText"  rows="6" cols="0" >
+                <textarea name="Text"  rows="6" cols="0" >
                     {% if Question %}
-                        {{note.text}}
+                        {{Question.text}}
                     {% else %}
                         Enter new text...
                     {% endif %}
@@ -34,9 +34,9 @@
             </p>
             <p>
                 {% if note %}
-                    <input type="submit" value="Update Note"/>
+                    <input type="submit" value="Update Question"/>
                 {% else %}
-                    <input type="submit" value="Add Note"/>
+                    <input type="submit" value="Add Question"/>
                 {% endif %}
             </p>
        </form>
