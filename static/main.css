@@ -1,0 +1,66 @@
+body{
+  background-color: black !important;
+}
+
+h1, h2{
+color: white;
+}
+
+#titleLabel {
+    text-align: center;
+}
+
+#titleBox {
+    text-align: center;
+}
+
+#postLabel {
+    text-align: center;
+}
+
+#postBox {
+    text-align: center;
+}
+
+#postButton {
+    text-align: center;
+}
+
+.center-blockA {
+  margin: auto;
+  display: block;
+}
+
+.center-blockB {
+  margin: auto;
+  display: block;
+}
+
+.dateLabel {
+    text-align: center;
+}
+
+.card {
+    margin: auto;
+    display: block;
+}
+
+table{
+background-color:white;
+border-radius: 12px 12px 0 0;
+text-align: center;
+
+}
+
+label{
+color:white;
+}
+
+li{
+color:white;
+list-style-type: none;
+}
+
+th,td{
+padding: 20px;
+}
