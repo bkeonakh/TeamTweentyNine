@@ -4,7 +4,7 @@ body{
 }
 
 h1, h2{
-color: white;
+color: black;
 text-align:center;
 
 }
@@ -49,20 +49,20 @@ text-align:center;
 }
 
 table{
-background-color:white;
+background-color:black;
 border-radius: 12px 12px 0 0;
 text-align: center;
 
 }
 
 label{
-color:white;
+color: black;
 margin-left: auto;
   margin-right: auto;
 }
 
 li{
-color:white;
+color: black;
 list-style-type: none;
 text-align: center;
 }
