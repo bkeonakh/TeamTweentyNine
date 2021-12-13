@@ -16,7 +16,10 @@ from forms import RegisterForm, LoginForm, CommentForm
 from base64 import b64encode
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = './static/upload_images'
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static', 'images_uploaded')
+
+
 ALLOWED_EXTENSIONS = {'png','jpg','jpeg'}
 app = Flask(__name__)     # create an app
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flask_note_app.db'
@@ -57,8 +60,8 @@ def get_post(post_id):
                                                    #, user_id=session['user_id']
                                                    ).one()
         form = CommentForm()
-
-        return render_template('post.html', post=my_post,user=session['user'], form=form)
+        image = b64encode(my_post.image).decode("utf-8")
+        return render_template('post.html', post=my_post,image=image,user=session['user'], form=form)
     else:
         return redirect(url_for('login'))
 
@@ -101,12 +104,11 @@ def new_post():
         if request.method == 'POST':
             title = request.form['title']
             text = request.form['postText']
-            
-
             from datetime import date
             today = date.today()
             today = today.strftime("%m-%d-%Y")
-            new_record = Post(title, text, today, session['user_id'])
+            file = request.files['image']
+            new_record = Post(title, text, file.read(), today, session['user_id'])
             db.session.add(new_record)
             db.session.commit()
             return redirect(url_for('get_posts'))

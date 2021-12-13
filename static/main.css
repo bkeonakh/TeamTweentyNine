@@ -1,9 +1,12 @@
 body{
   background-color: black !important;
+
 }
 
 h1, h2{
 color: white;
+text-align:center;
+
 }
 
 #titleLabel {
@@ -54,13 +57,34 @@ text-align: center;
 
 label{
 color:white;
+margin-left: auto;
+  margin-right: auto;
 }
 
 li{
 color:white;
 list-style-type: none;
+text-align: center;
 }
 
 th,td{
 padding: 20px;
 }
+
+table{
+   margin: auto;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#submit{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+

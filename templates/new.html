@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     	<link rel="stylesheet" href="/static/css/styles.css">
+
     </head>
 
     <body>
@@ -49,15 +50,10 @@
 </nav>
 
 	{% if post %}
-		<form action="{{ url_for('update_post', post_id=post.id) }}" method="post">
+		<form action="{{ url_for('update_post', post_id=post.id) }}" method="post" >
 	{% else %}
-        <form action="new" method="post">
+        <form action="new" method="post" enctype="multipart/form-data">
 	{% endif %}
-
-
-
-
-
 
             <div class="card col-sm-3 mt-4">
                 <div class="card-header">
@@ -76,7 +72,13 @@
 
             <h5 class="card-title"></h5>
             <p class="card-text"></p>
-            <input type="file" name="file">
+
+                    <div class="image">
+                         <label for="image">Upload An Image</label>
+                         <input type="file" name="image" id="image" accept="image/*">
+                    </div>
+
+
 
 
 			<input type="submit" value="Add Post">
