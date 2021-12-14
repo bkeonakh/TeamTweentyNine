@@ -9,23 +9,37 @@ text-align:center;
 
 }
 
+#IndexLabel {
+  color: white;
+}
+
+#IndexLabel2 {
+    color: white;
+
+}
+
 #titleLabel {
+    color: black;
     text-align: center;
 }
 
 #titleBox {
+    color: black;
     text-align: center;
 }
 
 #postLabel {
+    color: black;
     text-align: center;
 }
 
 #postBox {
+    color: black;
     text-align: center;
 }
 
 #postButton {
+    color: black;
     text-align: center;
 }
 
@@ -40,6 +54,7 @@ text-align:center;
 }
 
 .dateLabel {
+    color: black
     text-align: center;
 }
 
@@ -49,7 +64,7 @@ text-align:center;
 }
 
 table{
-background-color:black;
+background-color: black;
 border-radius: 12px 12px 0 0;
 text-align: center;
 
@@ -72,7 +87,8 @@ padding: 20px;
 }
 
 table{
-   margin: auto;
+    color: black;
+    margin: auto;
 }
 
 img {
@@ -86,5 +102,72 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+
+#loginCard {
+  margin: auto;
+  display: block;
+
+}
+
+#registerCard {
+  margin: auto;
+  display: block;
+}
+
+#CommentLabel {
+    color: white;
+}
+
+#Comment {
+    color: white;
+}
+
+#AnswerLabel{
+    color: white;
+}
+
+#CommentLabel2{
+    color: white;
+}
+
+#PostDetails{
+    color: white;
+}
+
+#postTitleLabel {
+    color: white;
+}
+
+#postTextLabel {
+    color: white;
+}
+
+#postDateLabel {
+    color: white;
+}
+
+#postTableData {
+    color: white;
+}
+
+#postTBox {
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+}
+
+#postTBoxLabel {
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+    color: white;
+
+}
+
+
+
+
 
 

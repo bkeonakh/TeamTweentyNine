@@ -198,6 +198,19 @@ def new_comment(post_id):
     else:
         return redirect(url_for('login'))
 
+@app.route('/posts/<int:post_id>/<action>')
+def like_action(post_id, action):
+    post = Post.query.filter_by(id=post_id).one()
+
+    if action == 'like':
+        User.like_post(post)
+        db.session.commit()
+    if action == 'unlike':
+        User.unlike_post(post)
+        db.session.commit()
+    return redirect(url_for('get_post'), user=User)
+
+
 
 @app.route('/search', methods=['GET', 'POST'])
 def search_post():
@@ -214,6 +227,8 @@ def latest():
     if request.method == 'GET':
         my_posts = db.session.query(Post).order_by(Post.id.desc()).all()
         return render_template('index.html', posts=my_posts,user=session['user'])
+
+
 
 app.run(host=os.getenv('IP', '127.0.0.1'),port=int(os.getenv('PORT', 5000)),debug=True)
 

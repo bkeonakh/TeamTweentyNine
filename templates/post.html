@@ -51,17 +51,17 @@
 
 
 
-        <h1>Post details</h1>
+        <h1 id="PostDetails">Post details</h1>
 
         <table>
             <tr>
-                <th>Title</th>
-                <th>Text</th>
-                <th>Date</th>
+                <th id="postTitleLabel">Title</th>
+                <th id="postTextLabel">Text</th>
+                <th id="postDateLabel">Date</th>
 
 
             </tr>
-            <tr>
+            <tr id="postTableData">
                 <td>{{ post.title }}</td>
                 <td>{{ post.text }}</td>
                 <td>{{ post.date }}</td>
@@ -75,22 +75,29 @@
     <br>
 
 
+    <a href="{{ url_for('like_action', post_id=post.id, action='unlike') }}">Unlike</a>
+
+    <a href="{{ url_for('like_action', post_id=post.id, action='like') }}">Like</a>
+
+  {{ post.likes.count() }} likes
+
+
 
 {% if post.comments %}
   {% if post.comments|length > 0 %}
-    <h2>Comments</h2>
+    <h2 id="CommentLabel">Comments</h2>
     <ul>
     {% for comment in post.comments %}
-      <li>{{ comment.content }}</li>
+      <li id="Comment">{{ comment.content }}</li>
     {% endfor %}
     </ul>
   {% endif %}
 {% endif %}
 <form action="{{ url_for('new_comment', post_id=post.id) }}" method="post">
   <div class="formwrapper">
-    <h2 class="title">Answer with a comment</h2>
-    <div class="form-field">
-      {{ form.comment.label }} <br/> {{ form.comment }}
+    <h2 class="title" id="AnswerLabel">Answer with a comment</h2>
+    <div class="form-field-post" id="CommentLabel2">
+      <div id="postTBoxLabel">{{ form.comment.label }} </div> <br/> <div id="postTBox">{{ form.comment }}</div>
     </div>
     {{ form.submit }}
   </div>
